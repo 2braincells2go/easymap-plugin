@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Plugin - Google Maps</title>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<link href="main.css" rel="stylesheet">
+	</head>
+	<body>
+		<h1>Documentation du plugin "easyMap"</h1>
+
+		<h3>carte 1</h3>
+		<pre>$("#map-1").easymap();</pre>
+		<div>
+			Cette présentation minimale permet de créer une "Google Maps" de 400px sur 300, centré sur Paris.<br />
+			Le zoom de base est de 8 (Le zoom pouvant aller de 1 à 21).<br />
+			Les controles de la carte sont dans leur état par défaut.<br />
+			La map ne contient aucun markers par défaut.
+		</div>
+		<div id="map-1"></div>
+		<hr>
+
+		<h3>carte 2</h3>
+		<pre>$("#map-2").easymap({
+	size: ['100%', '300px'],
+	control: {
+		zoom: 4,
+		center: [46.60611, 1.87528]
+	}
+});</pre>
+		<div>
+			Dans cette présentation, les paramètres présentés sont :
+			<li>La taille. Tableau à 2 éléments : [width, height]. Possibilité d'utiliser les 'px' comme les '%'</li>
+			<li>Le zoom (valeur pouvant aller de 1 à 21)</li>
+			<li>Le centre de la carte. Tableau à 2 éléments : [latitude, longitude].</li>
+		</div>
+		<div id="map-2"></div>
+		<hr>
+
+		<h3>carte 3</h3>
+		<pre>$("#map-3").easymap({
+	size: ['600px', '450px'],
+	control: {
+		zoom: 6,
+		center: [46.60611, 1.87528],
+		disableDefault: true,
+		zoomControl: false,
+		mapTypeControl: false
+	}
+});</pre>
+		<div>
+			Ici, je rajoute 3 paramètres au niveau des controles de la map :
+			<ul>
+				<li>disableDefault: boolean. Les valeurs sont "true" ou "false" (false par defaut).</li>
+				<li>zoomControl: boolean. (true par defaut)</li>
+				<li>mapTypeControl: boolean. (true par defaut)</li>
+			</ul>
+		</div>
+		<div id="map-3"></div>
+		<hr>
+
+		<h3>carte 4</h3>
+		<pre>$("#map-4").easymap({
+	size: ['600px', '450px'],
+	control: {
+		zoom: 6,
+		center: [46.60611, 1.87528]
+	},
+	markers: [
+		{"latitude":47.614444,"longitude":1.366389,"ville":"BLOIS", "icone": "img/archery.png"},
+		{"latitude":46.3333,"longitude":5.25,"ville":"MARBOZ"},
+		{"latitude":48.2167,"longitude":-4.16667,"ville":"DINEAULT"},
+		{"latitude":47.1667,"longitude":3.33333,"ville":"PREMERY"},
+		{"latitude":43.604482,"longitude":1.443962,"ville":"TOULOUSE", "icone": "img/beachvolleyball.png"},
+		{"latitude":48.856578,"longitude":2.351828,"ville":"PARIS", "icone": "img/boardercross.png"}
+	]
+});</pre>
+		<div>
+			Pour ajouter des markers sur la carte, il suffit d'ajouter la fonctionnalité "markers".<br />
+			Les valeurs d'un markeur sont les suivants :
+			<ul>
+				<li>Les coordonnées du marker (latitude et longitude). Valeur obligatoire.</li>
+				<li>Le nom de la ville (qui apparait dans un infowindow, au clic du marker). Valeur obligatoire.</li>
+				<li>L'icône du marker. Non obligatoire.</li>
+			<ul>
+		</div>
+		<div id="map-4"></div>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script type="text/javascript" src="easymap.plugin.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+</html>
